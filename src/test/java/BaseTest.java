@@ -20,9 +20,9 @@ import java.util.UUID;
 
 public class BaseTest {
     public WebDriver driver = null;
-    public WebDriverWait wait;
+    public WebDriverWait wait = null;
 
-    public Actions actions;
+    public Actions actions = null;
     public String url = "https://qa.koel.app/";
     @BeforeSuite
     static void setupClass() {

@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import Package.LoginPage;
+import Package.HomePage;
 
 public class Homework18 extends BaseTest {
     @Test
@@ -11,7 +13,9 @@ public class Homework18 extends BaseTest {
         provideEmail("daria.huzhvii@testpro.io");
         providePassword("VutYN7Kv");
         clickSubmit();
+        Thread.sleep(2000);
         playNextSong();
+        Thread.sleep(2000);
         playButton();
         Assert.assertTrue(soundBar());
     }
@@ -30,4 +34,19 @@ public class Homework18 extends BaseTest {
         return soundBar.isDisplayed();
     }
 
+    @Test
+
+    public void playSongTest () {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.login();
+        homePage.hoveOver();
+        homePage.playNextSong();
+        homePage.playSongBtn();
+
+        Assert.assertTrue(homePage.soundBarPanel().isDisplayed());
+
+
+    }
 }

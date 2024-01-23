@@ -3,6 +3,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import Package.LoginPage;
+import Package.HomePage;
+
+
 
 import java.time.Duration;
 
@@ -23,5 +27,20 @@ public class LoginTests extends BaseTest {
         driver.quit();
     }
 
+
+    @Test
+
+    public void loginValid(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.login();
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
+
+
+
+
+
+    }
 
 }
