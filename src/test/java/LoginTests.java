@@ -37,10 +37,16 @@ public class LoginTests extends BaseTest {
         loginPage.login();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
 
+    }
 
+    @Test
 
+    public void loginValid2(){
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
-
+        loginPage.enterEmail("daria.huzhvii@testpro.io").enterPassword("VutYN7Kv").enterSubmitBtn();
+        Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
     }
 
 }

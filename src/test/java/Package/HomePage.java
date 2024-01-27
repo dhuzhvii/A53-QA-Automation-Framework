@@ -3,6 +3,8 @@ package Package;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage{
 
@@ -17,24 +19,40 @@ public class HomePage extends BasePage{
 
     By soundBar = By.xpath("//*[@id='mainFooter']");
 
-   public WebElement controlPanel = driver.findElement(By.cssSelector("[class='side player-controls']"));
+   By controlPanel = By.cssSelector("[class='side player-controls']");
+
+   @FindBy(xpath="//*[@data-testid=\"play-btn\"]")
+   WebElement playSongFooter;
+
+   @FindBy(css = "[class='side player-controls']")
+   WebElement controlPanelFooter;
+
+
 
     public WebElement getUserAvatarIcon (){
         return findElementByLocator(userAvatarIcon);
     }
 
     public void hoveOver (){
-        actions.moveToElement(controlPanel).perform();
+        actions.moveToElement(findElementByLocator(controlPanel)).perform();
     }
-    public void playNextSong(){
-        findElementByLocator(nextSongIcon).click();
-    }
+
 
     public void playSongBtn(){
         findElementByLocator(playSongIcon).click();
     }
     public WebElement soundBarPanel(){
         return findElementByLocator(soundBar);
+    }
+
+    public HomePage playSongFirst (){
+        playSongFooter.click();
+        return this;
+    }
+
+    public HomePage moveToControlPanel (){
+        actions.moveToElement(controlPanelFooter).perform();
+        return this;
     }
 
 

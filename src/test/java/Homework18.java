@@ -42,11 +42,24 @@ public class Homework18 extends BaseTest {
 
         loginPage.login();
         homePage.hoveOver();
-        homePage.playNextSong();
         homePage.playSongBtn();
 
         Assert.assertTrue(homePage.soundBarPanel().isDisplayed());
 
 
     }
+
+@Test
+
+    public void playSongTest2 () {
+    LoginPage loginPage = new LoginPage(driver);
+    HomePage homePage = new HomePage(driver);
+
+    loginPage.enterEmail("daria.huzhvii@testpro.io").enterPassword("VutYN7Kv").enterSubmitBtn();
+    homePage.hoveOver();
+    homePage.playSongFirst();
+
+    Assert.assertTrue(homePage.soundBarPanel().isDisplayed());
+}
+
 }
