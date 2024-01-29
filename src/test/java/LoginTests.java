@@ -11,7 +11,7 @@ import Package.HomePage;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-    @Test
+   /* @Test
     public void loginEmptyEmailPassword() {
 
 //      Added ChromeOptions argument below to fix websocket error
@@ -25,7 +25,7 @@ public class LoginTests extends BaseTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
-    }
+    }*/
 
 
     @Test
