@@ -10,6 +10,8 @@ import Package.HomePage;
 
 import java.time.Duration;
 
+import static java.sql.DriverManager.getDriver;
+
 public class LoginTests extends BaseTest {
    /* @Test
     public void loginEmptyEmailPassword() {
@@ -31,8 +33,8 @@ public class LoginTests extends BaseTest {
     @Test
 
     public void loginValid(){
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.login();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
@@ -42,8 +44,8 @@ public class LoginTests extends BaseTest {
     @Test
 
     public void loginValid2(){
-        LoginPage loginPage = new LoginPage(driver);
-        HomePage homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(getDriver());
+        HomePage homePage = new HomePage(getDriver());
 
         loginPage.enterEmail("daria.huzhvii@testpro.io").enterPassword("VutYN7Kv").enterSubmitBtn();
         Assert.assertTrue(homePage.getUserAvatarIcon().isDisplayed());
